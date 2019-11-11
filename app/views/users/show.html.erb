@@ -1,5 +1,5 @@
 <h1>Hello, <%= @user.first_name %></h1>
 <h2>Bookings</h2>
 <% @user.bookings.each do |booking| %>
-  <p><%= booking.lesson.title %></p>
+  <div><%= link_to booking.lesson.title, lesson_path(booking.lesson) %></div>
 <% end %>
