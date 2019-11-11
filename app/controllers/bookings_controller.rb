@@ -5,12 +5,15 @@ class BookingsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     @booking = Booking.new(booking_params)
     @booking.lesson = @lesson
-    if current_user
-      @booking.save!
-      redirect_to user_path(@user)
-    else
-      redirect_to new_user_session_path
-    end
+    @booking.user = @user
+    @booking.save!
+    redirect_to lesson_path(@lesson)
+    # if current_user
+    #   @booking.save!
+    #   redirect_to users_path(@user)
+    # else
+    #   redirect_to new_user_session_path
+    # end
   end
 
   private

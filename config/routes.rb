@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'users/:id', to: 'users#show'
-  get 'lessons/:id', to: 'lessons#show'
-  get 'lessons/', to: 'lessons#index'
-  post 'bookings/', to: 'bookings#create'
+  resources :users, only: [:show]
+  resources :booking, only: [:create]
+  resources :lessons, only: [:show, :index]
   root to: 'pages#home'
 end
 
