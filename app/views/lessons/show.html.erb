@@ -1,2 +1,4 @@
 <h1><%= @lesson.title %></h1>
-<%= link_to "book this shit", user_session_path(@user) %>
+<%= simple_form_for [@lesson, @booking] do |b| %>
+  <%= b.submit %>
+<% end  %>
