@@ -1,0 +1,5 @@
+<h1>Hello, <%= @user.first_name %></h1>
+<h2>Bookings</h2>
+<% @user.lessons.each do |lesson| %>
+  <%= lesson.title  %>
+<% end %>
