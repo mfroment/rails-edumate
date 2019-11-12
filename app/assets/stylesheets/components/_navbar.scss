@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #5D737E;
+}
+
+#navbar-edumate-name {
+  color: white;
+  font-family: "Righteous", serif;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +14,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-item img {
+  width: 60px;
+  height: 60px;
 }
