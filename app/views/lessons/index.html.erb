@@ -1,4 +1,24 @@
-<h1>WHOPWHOWPWHOPW</h1>
+<h1>Lessons</h1>
+<div class="container">
 <% @lessons.each do |lesson| %>
-  <%= link_to lesson.title, lesson_path(lesson) %>
+<div class="card-lesson my-3">
+  <% if lesson.photo.nil? %>
+    <% photo = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
+  <% else %>
+    <% photo = lesson.photo %>
+  <% end %>
+  <img src="<%= photo %>" >
+  <div class="card-lesson-infos">
+      <div class="card-lesson-infos-left">
+        <h4><%= link_to lesson.title, lesson_path(lesson) %></h4>
+        <p><%= lesson.topic %></p>
+        <p><%= lesson.user.last_name %></p>
+      </div>
+      <div class="card-lesson-infos-right">
+        <p><%= lesson.time %></p>
+        <p><%= lesson.location %></p>
+      </div>
+    </div>
+</div>
 <% end %>
+</div>
