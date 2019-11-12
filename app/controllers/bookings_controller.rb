@@ -5,11 +5,14 @@ class BookingsController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @booking.lesson = @lesson
     @booking.user = @user
-    @booking.save!
     if current_user
-      @booking.save!
-      redirect_to user_path(@user)
+      if @booking.save
+        redirect_to lesson_path(@lesson)
+      else
+        render 'lessons/show'
+      end
     else
+      # TODO: redirect to lesson page after login if possible :)
       redirect_to new_user_session_path
     end
   end
