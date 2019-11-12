@@ -1,5 +1,23 @@
-<h1><%= @lesson.title %></h1>
-<%= simple_form_for [@lesson, @booking] do |b| %>
-  <%= b.submit %>
-<% end  %>
-<%= link_to "home", lessons_path %>
+<div class="container lesson-show-container">
+  <div class="lesson-flex-box"/>
+    <div class="lesson-image">
+      <%= image_tag("https://images.unsplash.com/photo-1549540807-5c95f853bf4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80") %>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    </div>
+    <div class="lesson-desc">
+      <h1><%= @lesson.title %></h1>
+      <h2><%= @lesson.topic %></h2>
+      <h2><%= @lesson.location %></h2>
+      <div class="lesson-creator-box">
+        <%= image_tag("https://i.imgur.com/kyySkSW.jpg", class: "lesson-avatar") %>
+        <h3><%= "#{@lesson.user[:first_name]} #{@lesson.user[:last_name]}" %></h3>
+      </div>
+      <h1 class="lesson-desc-price">3,000 JPY</h1>
+      <%= simple_form_for [@lesson, @booking] do |b| %>
+        <%= b.submit "Book now", :class => "book-lesson-btn" %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to "home", lessons_path %>
+</div>
+
