@@ -3,11 +3,11 @@
 <% @lessons.each do |lesson| %>
 <div class="card-lesson my-3">
   <% if lesson.photo.nil? %>
-    <% photo = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
+    <% photo = "lesson_placeholder.png" %>
   <% else %>
     <% photo = lesson.photo %>
   <% end %>
-  <img src="<%= photo %>" >
+  <%= image_tag photo, alt: lesson.title %>
   <div class="card-lesson-infos">
       <div class="card-lesson-infos-left">
         <h4><%= link_to lesson.title, lesson_path(lesson) %></h4>
