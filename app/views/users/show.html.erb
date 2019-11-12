@@ -1,28 +1,22 @@
 <h1>Hello, <%= @user.first_name %></h1>
+
+
 <h2>Bookings</h2>
 
 
-<% @user.lessons.sort_by { |lesson| lesson[:time] }.reverse.each do |lesson| %>
-  <% if lesson.time > Datetime.now %>
-    <% active_lessons << lesson %>
-  <% else %>
-    <% past_lessons << lesson %>
+<!-- sort user lessons by time, reverse order  -->
+<h3>Active Lessons</h3>
+<% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
+  <% if booking.lesson.time.to_f > Time.now.to_f %>
+    <%= link_to booking.lesson.title, lesson_path(booking.lesson) %>
   <% end %>
 <% end %>
 
-<h1>Active Lessons</h1>
-<% active_lessons.each do |lesson| %>
-  <%= link_to lesson.title, lesson_path(lesson) %>
-<% end %>
-
-<h2>Past Lessons</h2>
-<% past_lessons.each do |lesson| %>
-  <%= link_to lesson.title, lesson_path(lesson) %>
-<% end %>
-
-<%# @user.bookings.sort_by { |booking| booking[:time] }.reverse.each do |booking| %>
-  <!-- <div>
-    if booking.lesson.
+<h3>Past Lessons</h3>
+<% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
+  <% if booking.lesson.time.to_f < Time.now.to_f %>
     <%= link_to booking.lesson.title, lesson_path(booking.lesson) %>
-  </div> -->
-<%# end %>
+  <% end %>
+<% end %>
+
+
