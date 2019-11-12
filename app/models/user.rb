@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :bookings
   has_many :lessons
-  has_many :lessons_as_teacher,  through: :bookings, source: :lessons
+  has_many :lessons_as_teacher, through: :bookings, source: :lessons
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     if current_user
       if @booking.save
-        redirect_to lesson_path(@lesson)
+        redirect_to user_path(@user)
       else
         render 'lessons/show'
       end

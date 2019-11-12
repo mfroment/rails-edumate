@@ -1,4 +1,6 @@
-<h1>WHOPWHOWPWHOPW</h1>
+<div class="container">
+  <h1>Lessons</h1>
 <% @lessons.each do |lesson| %>
-  <%= link_to lesson.title, lesson_path(lesson) %>
+  <%= render 'lessons/card', lesson: lesson %>
 <% end %>
+</div>

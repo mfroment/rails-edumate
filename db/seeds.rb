@@ -15,9 +15,9 @@ end
 
 5.times do
   Lesson.create!(
-    :title => Faker::Hipster.sentence,
+    :title => Faker::Team.sport,
     :time => Faker::Time.forward(days: 5,  period: :evening, format: :long),
-    :location => Faker::Games::ElderScrolls.region,
+    :location => Faker::Nation.capital_city,
     :topic => Faker::Coffee.blend_name,
     :user_id => User.all.sample.id
     )

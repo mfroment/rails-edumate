@@ -1,0 +1,49 @@
+.card-lesson {
+  overflow: hidden;
+  height: 128px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-lesson img {
+  height: 100%;
+  width: 192px;
+  object-fit: cover;
+}
+
+
+.card-lesson h4 {
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.card-lesson p {
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-lesson .card-lesson-infos {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 0;
+  width: calc(100% - 192px);
+}
+
+.card-lesson .card-lesson-infos-left {
+  text-align: left;
+  height: 100%;
+  max-width: 70%;
+}
+
+.card-lesson .card-lesson-infos-right {
+  text-align: right;
+  height: 100%;
+}
