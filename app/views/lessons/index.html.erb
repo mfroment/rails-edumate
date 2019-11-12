@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Lessons</h1>
-<% @lessons.each do |lesson| %>
-  <%= render 'lessons/card', lesson: lesson %>
-<% end %>
+  <h1 class="text-center my-3">Lessons</h1>
+  <% @lessons.each do |lesson| %>
+    <%= render 'lessons/card', lesson: lesson %>
+  <% end %>
 </div>
