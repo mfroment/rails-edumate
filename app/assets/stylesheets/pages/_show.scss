@@ -1,0 +1,54 @@
+
+.lesson-show-container {
+  padding: 16px;
+  background: #FCFCFC;
+  border-radius: 8px;
+}
+
+.lesson-flex-box {
+  display: flex;
+}
+
+.lesson-image {
+  margin-right: 24px;
+}
+
+.lesson-image p {
+  max-width: 400px;
+  padding: 8px;
+  color: #1A1A1A;
+}
+
+.lesson-image img {
+  width: 400px;
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.lesson-desc h1 {
+  color: #1A1A1A;
+  font-weight: bold;
+}
+
+.lesson-desc h2 {
+  color: #757373;
+  font-size: 24px;
+}
+
+.lesson-desc h3 {
+  font-size: 20px;
+  margin-left: 16px;
+  font-weight: bold;
+  color: #1A1A1A;
+}
+.lesson-creator-box {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.lesson-desc-price {
+  color: #1A1A1A;
+}
