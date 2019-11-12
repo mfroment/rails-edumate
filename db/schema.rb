@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_062725) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "title"
-    t.datetime "time"
+    t.string "time"
     t.string "location"
     t.string "photo"
     t.string "topic"
