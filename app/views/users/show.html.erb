@@ -1,5 +1,22 @@
 <h1>Hello, <%= @user.first_name %></h1>
+
+
 <h2>Bookings</h2>
-<% @user.bookings.each do |booking| %>
-  <div><%= link_to booking.lesson.title, lesson_path(booking.lesson) %></div>
+
+
+<!-- sort user lessons by time, reverse order  -->
+<h3>Active Lessons</h3>
+<% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
+  <% if booking.lesson.time.to_f > Time.now.to_f %>
+    <%= link_to booking.lesson.title, lesson_path(booking.lesson) %>
+  <% end %>
 <% end %>
+
+<h3>Past Lessons</h3>
+<% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
+  <% if booking.lesson.time.to_f < Time.now.to_f %>
+    <%= link_to booking.lesson.title, lesson_path(booking.lesson) %>
+  <% end %>
+<% end %>
+
+
