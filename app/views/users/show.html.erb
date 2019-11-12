@@ -1,45 +1,21 @@
 
-
-<div class="container pt-2">
+<div class="container pt-3">
   <h1>Hello, <%= @user.first_name %></h1>
 
-  <h3>Bookings</h3>
+  <h4 class="pt-3 pb-3">My Bookings</h4>
 
   <!-- sort user lessons by time, reverse order  -->
   <p>Active Lessons</p>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
-    <ul>
-      <% if booking.lesson.time.to_f > Time.now.to_f %>
-          <div class="card-lesson my-3">
-            <% if booking.lesson.photo.nil? %>
-              <% photo = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
-            <% else %>
-              <% photo = booking.lesson.photo %>
-            <% end %>
-            <img src="<%= photo %>" >
-            <div class="card-lesson-infos">
-              <div class="card-lesson-infos-left">
-                <h4><%= link_to booking.lesson.title, lesson_path(booking.lesson) %></h4>
-              <p><%= booking.lesson.topic %></p>
-               <p><%= booking.lesson.user.last_name %></p>
-            </div>
-              <div class="card-lesson-infos-right">
-              <p><%= booking.lesson.time.strftime("%A, %d %B %H:%M") %></p>
-              <p><%= booking.lesson.location %></p>
-            </div>
-            </div>
-          </div>
-      <% end %>
-    </ul>
+    <% if booking.lesson.time.to_f > Time.now.to_f %>
+          <%= render 'lessons/card', lesson: booking.lesson %>
+    <% end %>
   <% end %>
 
   <p>Past Lessons</p>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
-    <ul>
       <% if booking.lesson.time.to_f < Time.now.to_f %>
-       <li><%= link_to booking.lesson.title, lesson_path(booking.lesson) %></li>
+        <%= render 'lessons/card', lesson: booking.lesson %>
       <% end %>
-    </ul>
   <% end %>
-
 </div>

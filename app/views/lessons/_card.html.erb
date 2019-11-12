@@ -12,7 +12,8 @@
         <p><%= link_to lesson.user.full_name, user_path(lesson.user) %></p>
       </div>
       <div class="card-lesson-infos-right">
-        <p><%= lesson.time %></p>
+        <p><strong><%= lesson.time.strftime("%I:%M %p") %></strong></p>
+        <p><%= lesson.time.strftime("%A, %d %B ") %></p>
         <p><%= lesson.location %></p>
       </div>
     </div>
