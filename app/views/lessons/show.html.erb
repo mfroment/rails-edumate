@@ -31,6 +31,11 @@
             <%= b.submit "Book now", :class => "book-lesson-btn" %>
           <% end %>
         <% end %>
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
   </div>
   <%= link_to "home", lessons_path %>
