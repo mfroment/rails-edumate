@@ -2,5 +2,11 @@
   <div class="container">
     <h1>Learn what you love</h1>
     <p>Explore hundreds of lessons today.</p>
+    <div class="home-search">
+      <%= simple_form_for :search, url: lessons_path, method: :get do |f| %>
+        <%= f.input_field :query, input_html: { value: "" } %>
+        <%= f.submit 'Search' %>
+      <% end %>
+    </div>
   </div>
 </div>
