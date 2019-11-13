@@ -1,0 +1,37 @@
+/* utility styles */
+
+body {
+  background-color: #f9fcfc;
+}
+
+.fill {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.shadow {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.round {
+  border-radius: 4px;
+}
+
+.search-bar {
+  width: 480px;
+    padding: 16px;
+    border: none;
+    border-radius: 64px;
+    opacity: 0.5;
+}
+
+.submit-button {
+    border-radius: 82px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.5;
+}
+
+.text-white {
+  color: white;
+}
