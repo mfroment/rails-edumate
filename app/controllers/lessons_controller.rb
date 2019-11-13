@@ -18,5 +18,11 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     @booking = Booking.new
     @user = current_user
+
+    if user_signed_in?
+      @booked = !(@user.bookings.select { |booking| booking.lesson_id == @lesson.id }.empty?)
+    else
+      @booked = false
+    end
   end
 end
