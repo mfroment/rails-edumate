@@ -7,5 +7,6 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @booking = Booking.new
+    @user = current_user
   end
 end
