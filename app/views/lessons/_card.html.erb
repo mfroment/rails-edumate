@@ -1,10 +1,9 @@
 <div class="card-lesson my-3">
-  <% if lesson.photo.nil? %>
-    <% photo = "lesson_placeholder.png" %>
+  <% if lesson.photo.file %>
+    <%= cl_image_tag lesson.photo, crop: :fill, alt: lesson.title %>
   <% else %>
-    <% photo = lesson.photo %>
+    <%= image_tag "lesson_placeholder.png", alt: lesson.title %>
   <% end %>
-  <%= image_tag photo, alt: lesson.title %>
   <div class="card-lesson-infos">
       <div class="card-lesson-infos-left">
         <h4><%= link_to lesson.title, lesson_path(lesson) %></h4>
