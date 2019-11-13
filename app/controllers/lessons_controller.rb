@@ -15,8 +15,10 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.geocoded.find(params[:id])
     @booking = Booking.new
     @user = current_user
+    @markers = [{ lat: @lesson.latitude,
+                 lng: @lesson.longitude }]
   end
 end
