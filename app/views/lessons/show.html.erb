@@ -1,4 +1,4 @@
-<div class="container lesson-show-container">
+<div class="container fill lesson-show-container">
   <div class="lesson-flex-box"/>
     <div class="lesson-image">
       <% if @lesson.photo.file %>
@@ -21,11 +21,14 @@
         <h3><%= @lesson.user.full_name %></h3>
       </div>
       <h1 class="lesson-desc-price">3,000 JPY</h1>
-      <%= simple_form_for [@lesson, @booking] do |b| %>
-        <%= b.submit "Book now", :class => "book-lesson-btn" %>
-      <% end %>
+        <%= simple_form_for [@lesson, @booking] do |b| %>
+          <% unless @user.bookings.select { |booking| booking.lesson_id == @lesson.id }.empty? %>
+            <%= b.submit "Booked", :class => "book-lesson-btn", disabled: true %>
+          <% else %>
+            <%= b.submit "Book now", :class => "book-lesson-btn" %>
+          <% end %>
+        <% end %>
     </div>
   </div>
   <%= link_to "home", lessons_path %>
 </div>
-

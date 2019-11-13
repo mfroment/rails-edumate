@@ -1,18 +1,18 @@
 
-<div class="container pt-3">
+<div class="container fill pt-3">
   <h1>Hello, <%= @user.first_name %></h1>
 
   <h4 class="pt-3 pb-3">My Bookings</h4>
 
   <!-- sort user lessons by time, reverse order  -->
-  <p>Active Lessons</p>
+  <p>Your Upcoming Lessons</p>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
     <% if booking.lesson.time.to_f > Time.now.to_f %>
           <%= render 'lessons/card', lesson: booking.lesson %>
     <% end %>
   <% end %>
 
-  <p>Past Lessons</p>
+  <p>Your Past Lessons</p>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
       <% if booking.lesson.time.to_f < Time.now.to_f %>
         <%= render 'lessons/card', lesson: booking.lesson %>
