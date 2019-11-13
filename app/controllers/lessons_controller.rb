@@ -9,6 +9,8 @@ class LessonsController < ApplicationController
       else
         @lessons = Lesson.search(@query)
       end
+    else
+      @lessons = Lesson.all
     end
   end
 
