@@ -1,12 +1,17 @@
 <div class="banner">
   <div class="container">
-    <h1>Learn what you love</h1>
-    <p>Explore hundreds of lessons today.</p>
-    <div class="home-search">
-      <%= simple_form_for :search, url: lessons_path, method: :get do |f| %>
-        <%= f.input_field :query, input_html: { value: "" } %>
-        <%= f.submit 'Search' %>
-      <% end %>
+    <div class="banner-content">
+      <h1>Welcome to Edumate</h1>
+      <h3 class="text-white">Learn what you love</h3>
+      <p>Explore hundreds of lessons today.</p>
+      <div class="home-search">
+        <%= simple_form_for :search, url: lessons_path, method: :get do |f| %>
+          <%= f.input_field :query, class: "search-bar", input_html: { value: "" } %>
+          <%= button_tag type: "submit", class: "submit-button" do  %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

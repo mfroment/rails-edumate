@@ -11,6 +11,8 @@
     <div class="lesson-desc">
       <h1><%= @lesson.title %></h1>
       <h2><%= @lesson.topic %></h2>
+      <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
+      <h2><%= @lesson.time.strftime("%I:%M %p") %></h2>
       <h2><%= @lesson.location %></h2>
       <div class="lesson-creator-box">
         <% if @lesson.photo.file %>
@@ -21,10 +23,11 @@
         <h3><%= @lesson.user.full_name %></h3>
       </div>
       <h1 class="lesson-desc-price">3,000 JPY</h1>
+       <!-- if user not logged in, booking -->
         <%= simple_form_for [@lesson, @booking] do |b| %>
-          <% unless @user.bookings.select { |booking| booking.lesson_id == @lesson.id }.empty? %>
+          <% if @booked %>
             <%= b.submit "Booked", :class => "book-lesson-btn", disabled: true %>
-          <% else %>
+           <% else %>
             <%= b.submit "Book now", :class => "book-lesson-btn" %>
           <% end %>
         <% end %>
