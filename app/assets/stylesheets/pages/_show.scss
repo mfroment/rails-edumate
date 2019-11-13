@@ -1,8 +1,8 @@
 
 .lesson-show-container {
-  padding: 16px;
+  padding: 32px;
   background: #FCFCFC;
-  border-radius: 8px;
+  height: 100%;
 }
 
 .lesson-flex-box {
@@ -11,20 +11,25 @@
 
 .lesson-image {
   margin-right: 24px;
+  width: 40%;
 }
 
 .lesson-image p {
-  max-width: 400px;
   padding: 8px;
   color: #1A1A1A;
 }
 
 .lesson-image img {
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: auto;
   border-radius: 15px;
   object-fit: cover;
   margin-right: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.lesson-desc {
+  width: 60%;
 }
 
 .lesson-desc h1 {
@@ -52,3 +57,48 @@
 .lesson-desc-price {
   color: #1A1A1A;
 }
+
+
+@media all and (min-width: 480px) and (max-width: 991px) {
+  .lesson-flex-box {
+    flex-wrap: wrap;
+  }
+
+ .lesson-image img {
+    margin-bottom: 32px;
+  }
+
+ .lesson-image{
+    order: 2;
+    margin: 32px 0;
+    width: 100%;
+  }
+
+  .lesson-desc {
+    order: 1;
+    width: 100%;
+  }
+
+  .book-lesson-btn {
+    width: 100%;
+  }
+
+}
+
+@media all and (max-width: 480px) {
+    .lesson-flex-box {
+    flex-wrap: wrap;
+  }
+
+  .lesson-image{
+    order: 2;
+    margin: 32px 0;
+    width: 100%;
+  }
+
+  .lesson-desc {
+    order: 1;
+    width: 100%;
+  }
+
+ }
