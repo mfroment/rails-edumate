@@ -113,7 +113,7 @@ seed_lessons.each do |lesson|
     user_id: User.where(first_name: lesson[:user_first_name]).first.id,
     remote_photo_url: edumate_seed_photo_url(lesson[:photo_file]),
     location: Faker::Nation.capital_city,
-    time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now).beginning_of_hour
+    time: Faker::Time.between_dates(from: Date.today - 5, to: Date.today + 5).beginning_of_hour
   })
   puts " Added #{l.title}"
 end
