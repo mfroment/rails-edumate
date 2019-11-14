@@ -56,6 +56,7 @@ seed_data['lessons'].each do |lesson|
      title: lesson['title'],
      topic: lesson['topic'],
      user: users[lesson['user_slug']],
+     description: lesson['description'],
      remote_photo_url: edumate_seed_photo_url(lesson['photo_file']),
      location: LOCATIONS.sample,
      time: send(lesson['time'])
