@@ -20,7 +20,7 @@
         <% else %>
           <%= image_tag "user_placeholder.png", alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
         <% end %>
-        <h3><%= user_full_name(@lesson.user) %></h3>
+        <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
       </div>
       <h1 class="lesson-desc-price">3,000 JPY</h1>
        <!-- if user not logged in, booking -->
@@ -38,7 +38,6 @@
       ></div>
     </div>
   </div>
-  <%= link_to "home", lessons_path %>
   <% if @lesson.user == current_user %>
     <%= link_to "edit", edit_lesson_path(@lesson) %>
   <% end %>
