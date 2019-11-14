@@ -15,7 +15,9 @@
   <p>Your Past Lessons</p>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
       <% if booking.lesson.time.to_f < Time.now.to_f %>
-        <%= render 'lessons/card', lesson: booking.lesson %>
+        <div class="faded">
+          <%= render 'lessons/card', lesson: booking.lesson %>
+        </div>
       <% end %>
   <% end %>
 </div>
