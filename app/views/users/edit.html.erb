@@ -1,0 +1,12 @@
+<% if @user == current_user %>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name, label: 'First name' %>
+    <%= f.input :last_name, label: 'Last name' %>
+    <%= f.input :email, label: 'E-mail' %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+     <%= f.button :submit %>
+  <% end %>
+<% else%>
+  <h2>Access denied</h2>
+<% end %>
