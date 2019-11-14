@@ -22,12 +22,14 @@
     <p><%= article %> Past Bookings</p>
     <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
         <% if booking.lesson.time.to_f < Time.now.to_f %>
-          <%= render 'lessons/card', lesson: booking.lesson %>
+          <div class="faded">
+            <%= render 'lessons/card', lesson: booking.lesson %>
+          </div>
         <% end %>
     <% end %>
 
   <% end %>
-  
+
   <h4 class="pt-3 pb-3"><%= article %> Teachings</h4>
 
   <p><%= article %> Upcoming Teachings</p>
@@ -40,7 +42,9 @@
   <p><%= article %> Past Teachings</p>
   <% @user.lessons_as_teacher.order(time: :desc).each do |lesson| %>
     <% if lesson.time.to_f < Time.now.to_f %>
-          <%= render 'lessons/card', lesson: lesson %>
+          <div class="faded">
+            <%= render 'lessons/card', lesson: lesson %>
+          </div>
     <% end %>
   <% end %>
 
