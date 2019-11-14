@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+
+.body-section {
+  min-height: 400px;
+}
+
+.feature-section{
+  width: 100%;
+  margin: 40px 0;
+  height: 320px;
+}
+
+.feature {
+  width: 33%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.icons {
+  font-size: 80px;
+  color: #5C80BC;
+  margin-bottom: 32px;
+}
