@@ -6,8 +6,8 @@
 
 .feature-section{
   width: 100%;
-  margin: 40px 0;
-  height: 320px;
+  margin: 40px auto;
+  height: 240px;
 }
 
 .feature {
@@ -24,4 +24,17 @@
   font-size: 80px;
   color: #5C80BC;
   margin-bottom: 32px;
+}
+
+.recommended-classes{
+  background-color: #4D5061;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.recommended-classes h1 {
+
 }
