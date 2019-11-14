@@ -9,9 +9,9 @@ class LessonsController < ApplicationController
         OR users.first_name @@ :query \
         OR users.last_name @@ :query \
         "
-      @lessons = Lesson.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      @lessons = Lesson.joins(:user).where(sql_query, query: "%#{params[:query]}%").sort_by { |lesson| lesson.time }
     else
-      @lessons = Lesson.all
+      @lessons = Lesson.all.sort_by { |lesson| lesson.time }
     end
   end
 
