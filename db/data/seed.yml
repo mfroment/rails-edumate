@@ -15,60 +15,93 @@ users:
     first_name: 'Jiyoung'
     last_name: 'Ko'
     photo_file: 'users-jy'
+  - slug: jack
+    first_name: 'Jack'
+    last_name: 'Miller'
+    photo_file: 'users-jack'
+  - slug: sarah
+    first_name: 'Sarah'
+    last_name: 'Huntson'
+    photo_file: 'users-sarah'
+  - slug: takeshi
+    first_name: 'Takeshi'
+    last_name: 'Onodera'
+    photo_file: 'users-takeshi'
+  - slug: minami
+    first_name: 'Minami'
+    last_name: 'Yamaguchi'
+    photo_file: 'users-minami'
+  - slug: yoshi
+    first_name: 'Yoshikazu'
+    last_name: 'Inoue'
+    photo_file: 'users-yoshi'
+  - slug: kanami
+    first_name: 'Kanami'
+    last_name: 'Matsumoto'
+    photo_file: 'users-kanami'
 
 lessons:
   - slug: yoga
     title: 'Yoga beginners/intermediate'
     topic: 'Health'
+    description: 'This is an event for anyone who is interested in Yoga. From beginners to advanced yoga practitioners. You can have fun connecting with people from all over Tokyo. I aim to help everyone have a healthier mind, body and social life through my outdoor yoga event.'
     user_slug: jy
     photo_file: 'lessons-01'
     time: forward_time
   - slug: piano
     title: 'Piano Lessons'
     topic: 'Music'
-    user_slug: jy
+    description: 'This workshop is for adult piano students of all levels. Students come together at a studio and play a song which they are practicing. Whether it is complete, or a work in progress at the time of performance, does not matter. What matters is that we come together as a friendly group to share and showcase our progress, and in doing so, gain motivation and support to continue our efforts to practice and become better piano players'
+    user_slug: minami
     photo_file: 'lessons-02'
     time: forward_time
   - slug: ruby
     title: 'Ruby Programming'
     topic: 'Programming'
+    description: 'This workshop has a focus on Ruby on Rails engineering best practices and principles along with emerging Rails technologies. I focus my lessons on mixing Rails with new and emerging technologies as much as possible. Examples of this will range from using Rails with Big Data and high frequency trading to using rails to develop apps for robots, and new medical devices.'
     user_slug: gerard
     photo_file: 'lessons-03'
     time: forward_time
   - slug: physics
     title: 'Physics'
     topic: 'Science'
+    description: 'Whether you are an expert or a neophyte in whatever physics topics I cover, it will be an interesting workshop for all. Come join me on the 2nd Friday of the month and share and discuss your Physics interest and knowledge and have fun while you do!'
     user_slug: tom
     photo_file: 'lessons-04'
     time: forward_time
   - slug: italian_cooking
     title: 'Italian Cooking'
     topic: 'Cooking'
+    description: 'Come discover Italian wines and food culture by tasting, drinking and eating. We will make a voyage through Bel Paese particular and original wines, cheeses, olive oils, hams and so on. We will have monthly lessons, about particular Italian wines and Italian delikatessen, learning and discussing about their history and peculiarities, doing a real wine or food tasting, learning recipes.'
     user_slug: maxime
     photo_file: 'lessons-05'
     time: forward_time
   - slug: skiing
     title: 'Skiing'
     topic: 'Sports'
-    user_slug: maxime
+    description: 'Meet other local skiers & snowboarders to get out and enjoy the mountains. I offer both local and out-of-area ski & snowboard trips, carpools, weekend ski houses, regular social events, and advice to save you $ on lift tickets. We welcome skiers and boarders of all skill levels. Come join me on the slopes!'
+    user_slug: takeshi
     photo_file: 'lessons-06'
     time: forward_time
   - slug: gymnastics
     title: 'Gymnastics'
     topic: 'Health'
-    user_slug: tom
+    description: 'Come join a gymnastics class that incorporates balance, flexibility, stretching and strength while maintaining and enhancing your gymnastics abilities. It is the perfect work out that uses every muscle in your body and helps develop gymnastics skills for all levels. Fun, rigorous and challenging for the old gymnast or any adult that wants to experience an exciting way to exercise. Your body will feel great and your friends will be impressed. Everybody welcome.'
+    user_slug: sarah
     photo_file: 'lessons-07'
     time: forward_time
   - slug: public_speaking
     title: 'Speaking in Public'
     topic: 'Presenting'
-    user_slug: gerard
+    description: 'This meeting is meant for anybody who wants to beat the fear of public speaking such as work presentation, job interviews, public speeches or just better communication in workplace'
+    user_slug: yoshi
     photo_file: 'lessons-08'
     time: backward_time
   - slug: helicopter
     title: 'Helicopter Piloting'
     topic: 'Transport'
-    user_slug: tom
+    description: 'This is a workshop I wanted to setup for anyone interested in getting affordable helicopter lessons in the Tokyo area. It is a great way to meet people and a fun peak inside the world of helicopter piloting!'
+    user_slug: jack
     photo_file: 'lessons-09'
     time: backward_time
 
@@ -77,11 +110,21 @@ bookings:
     lesson_slug: helicopter
   - user_slug: jy
     lesson_slug: helicopter
-  - user_slug: gerard
+  - user_slug: maxime
+    lesson_slug: helicopter
+  - user_slug: kanami
+    lesson_slug: helicopter
+  - user_slug: jack
     lesson_slug: helicopter
   - user_slug: tom
     lesson_slug: public_speaking
   - user_slug: jy
     lesson_slug: public_speaking
-  - user_slug: tom
+  - user_slug: yoshi
+    lesson_slug: physics
+  - user_slug: minami
+    lesson_slug: gymnastics
+  - user_slug: takeshi
+    lesson_slug: italian_cooking
+  - user_slug: jack
     lesson_slug: skiing

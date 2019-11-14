@@ -2,16 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Cabin', Sans-Serif "sans-serif";
+$body-font: 'Cabin', Sans-Serif, "sans-serif";
 $headers-font: 'Roboto Condensed', Sans-Serif, "sans-serif";
-$appname-font:"Righteous", "serif";
+$appname-font: 'Roboto Condensed', Sans-Serif;
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+p { font-size: 18px; color: #696969; }
