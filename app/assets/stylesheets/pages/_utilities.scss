@@ -19,26 +19,12 @@ body {
 }
 
 .form-control {
-  width: 480px;
     padding: 16px;
     border: none;
     border-radius: 64px;
-    opacity: 0.5;
-}
-
-.search-bar {
-  width: 480px;
-    padding: 16px;
-    border: none;
-    border-radius: 64px;
-    opacity: 0.5;
-}
-
-.submit-button {
-    border-radius: 82px;
-    width: 50px;
+    opacity: 1;
+    border: 1px solid #dfdfdf;
     height: 50px;
-    opacity: 0.5;
 }
 
 .text-white {
