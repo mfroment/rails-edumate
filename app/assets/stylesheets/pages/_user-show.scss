@@ -1,0 +1,24 @@
+.lesson-tabs {
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 32px 0;
+  transition: 0.5s;
+}
+
+.lesson-tabs li {
+  display: inline;
+  padding-right: 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+}
+
+.lesson-tabs li a {
+  text-decoration: none;
+  padding-bottom: 16px;
+  color: $dark-gray;
+}
+
+.lesson-tabs li a:focus {
+  text-decoration: none;
+  border-bottom: 5px solid #87B2C8;
+}
