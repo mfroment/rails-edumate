@@ -2,9 +2,40 @@
   <div class="container">
     <div class="banner-content">
       <h1>Welcome to Edumate</h1>
-      <h3 class="text-white">Learn what you love</h3>
-      <p>Explore hundreds of lessons today.</p>
+      <p class="text-yellow">Learn what you love</p>
       <div class="home-search">
+        <%= form_tag lessons_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "search-bar" %>
+          <%= button_tag type: "submit", class: "submit-button" do  %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="body-section">
+  <div class="container feature-section">
+    <div class="feature">
+      <i class="fas icons fa-chalkboard-teacher"></i>
+      <p>Get connected with experts in the topics that you care about the most.</p>
+    </div>
+    <div class="feature">
+      <i class="fas icons fa-map-marked-alt"></i>
+      <p>Take lessons from right in your own neighborhood or as far as you're willing to travel.</p>
+    </div>
+    <div class="feature">
+      <i class="fas icons fa-users">
+      </i>
+      <p>And a third equally poigniant selling point!</p>
+    </div>
+  </div>
+  <div class="recommended-classes text-center">
+    <div class="container">
+      <h1 class="text-white">Search for top lessons in your area</h1>
+       <div class="home-search">
         <%= form_tag lessons_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
