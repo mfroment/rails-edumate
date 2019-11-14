@@ -1,4 +1,4 @@
-<div class="container fill pt-3">
+<div class="container fill user-show">
   <% if @user == current_user %>
     <h1>Hello, <%= @user.first_name %></h1>
     <% article = "My" %>
@@ -55,6 +55,12 @@
 </div>
 
 <script>
+
+  //autofocus
+
+  var a_focus = document.getElementById('content_1');
+  if(a_focus) a_focus.focus();
+
   //tab function
 function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
   var x = document.getElementsByClassName("tabcontent");

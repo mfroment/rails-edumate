@@ -11,9 +11,9 @@
         <p>by <%= link_to user_full_name(lesson.user), user_path(lesson.user) %></p>
       </div>
       <div class="card-lesson-infos-right">
-        <p><strong><%= lesson.time.strftime("%I:%M %p") %></strong></p>
-        <p><%= lesson.time.strftime("%A, %d %B ") %></p>
-        <p><%= lesson.location %></p>
+        <p><i class="far card-icon fa-clock"></i> <%= lesson.time.strftime("%I:%M %p") %></p>
+        <p><i class="far card-icon fa-calendar-plus"> </i><%= lesson.time.strftime("%A, %d %B ") %></p>
+        <p><i class="fas card-icon fa-map-marker-alt"> </i><%= lesson.location %></p>
       </div>
     </div>
 </div>

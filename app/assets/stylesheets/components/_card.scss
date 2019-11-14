@@ -50,7 +50,8 @@
 }
 
 .card-lesson .card-lesson-infos-right {
-  text-align: right;
+  text-align: left;
+  width: 240px;
   height: 100%;
 }
 
@@ -77,4 +78,9 @@
 .small-card-lesson-infos {
   padding: 32px;
   text-align: left;
+}
+
+.card-icon {
+  color: #5C80BC;
+  padding-right: 16px;
 }
