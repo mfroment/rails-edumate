@@ -39,4 +39,7 @@
     </div>
   </div>
   <%= link_to "home", lessons_path %>
+  <% if @lesson.user == current_user %>
+    <%= link_to "edit", edit_lesson_path(@lesson) %>
+  <% end %>
 </div>

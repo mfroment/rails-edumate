@@ -1,5 +1,7 @@
 class LessonsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_lesson, only: %i[edit update]
+
   def index
     if params[:query].present?
       sql_query = " \
@@ -53,9 +55,24 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @lesson.update(lesson_params)
+      redirect_to lesson_path(@lesson)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def lesson_params
     params.require(:lesson).permit(:title, :topic, :location, :photo, :description, :time)
+  end
+
+  def set_lesson
+    @lesson = Lesson.find(params[:id])
   end
 end
