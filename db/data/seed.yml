@@ -1,0 +1,87 @@
+users:
+  - slug: maxime
+    first_name: 'Maxime'
+    last_name: 'Froment'
+    photo_file: 'users-maxime'
+  - slug: gerard
+    first_name: 'Gerard'
+    last_name: 'Cabarse'
+    photo_file: 'users-gerard'
+  - slug: tom
+    first_name: 'Tom'
+    last_name: 'Niblo'
+    photo_file: 'users-tom'
+  - slug: jy
+    first_name: 'Jiyoung'
+    last_name: 'Ko'
+    photo_file: 'users-jy'
+
+lessons:
+  - slug: yoga
+    title: 'Yoga beginners/intermediate'
+    topic: 'Health'
+    user_slug: jy
+    photo_file: 'lessons-01'
+    time: forward_time
+  - slug: piano
+    title: 'Piano Lessons'
+    topic: 'Music'
+    user_slug: jy
+    photo_file: 'lessons-02'
+    time: forward_time
+  - slug: ruby
+    title: 'Ruby Programming'
+    topic: 'Programming'
+    user_slug: gerard
+    photo_file: 'lessons-03'
+    time: forward_time
+  - slug: physics
+    title: 'Physics'
+    topic: 'Science'
+    user_slug: tom
+    photo_file: 'lessons-04'
+    time: forward_time
+  - slug: italian_cooking
+    title: 'Italian Cooking'
+    topic: 'Cooking'
+    user_slug: maxime
+    photo_file: 'lessons-05'
+    time: forward_time
+  - slug: skiing
+    title: 'Skiing'
+    topic: 'Sports'
+    user_slug: maxime
+    photo_file: 'lessons-06'
+    time: forward_time
+  - slug: gymnastics
+    title: 'Gymnastics'
+    topic: 'Health'
+    user_slug: tom
+    photo_file: 'lessons-07'
+    time: forward_time
+  - slug: public_speaking
+    title: 'Speaking in Public'
+    topic: 'Presenting'
+    user_slug: gerard
+    photo_file: 'lessons-08'
+    time: backward_time
+  - slug: helicopter
+    title: 'Helicopter Piloting'
+    topic: 'Transport'
+    user_slug: tom
+    photo_file: 'lessons-09'
+    time: backward_time
+
+bookings:
+  - user_slug: maxime
+    lesson_slug: helicopter
+  - user_slug: jy
+    lesson_slug: helicopter
+  - user_slug: gerard
+    lesson_slug: helicopter
+  - user_slug: tom
+    lesson_slug: public_speaking
+  - user_slug: jy
+    lesson_slug: public_speaking
+  - user_slug: tom
+    lesson_slug: skiing
