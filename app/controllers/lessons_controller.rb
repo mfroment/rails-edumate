@@ -29,4 +29,35 @@ class LessonsController < ApplicationController
       @booked = false
     end
   end
+
+  def new
+    if user_signed_in?
+      @user = current_user
+      @lesson = Lesson.new
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def create
+    if user_signed_in?
+      @lesson = Lesson.new(lesson_params)
+      @user = current_user
+      @lesson.user = @user
+      if @lesson.save
+        redirect_to lesson_path(@lesson)
+      else
+        render 'new'
+      end
+    else
+      # TODO: redirect to lesson page after login if possible :)
+      redirect_to new_user_session_path
+    end
+  end
+
+  private
+
+  def lesson_params
+    params.require(:lesson).permit(:title, :topic, :location, :photo, :description, :time)
+  end
 end
