@@ -15,6 +15,11 @@
     <li>
       <a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">My Teachings</a>
     </li>
+    <% if @user == current_user %>
+    <li>
+      <%= link_to "Edit profile", edit_user_path(@user) %>
+    </li>
+    <% end %>
   </ul>
 
   <!-- sort user lessons by time, reverse order  -->
