@@ -1,14 +1,15 @@
 class LessonsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @search = params["search"]
-    if @search.present?
-      @query = @search["query"]
-      if @query == ""
-        @lessons = Lesson.all
-      else
-        @lessons = Lesson.search(@query)
-      end
+    if params[:query].present?
+      sql_query = " \
+        lessons.title @@ :query \
+        OR lessons.location @@ :query \
+        OR lessons.topic @@ :query \
+        OR users.first_name @@ :query \
+        OR users.last_name @@ :query \
+        "
+      @lessons = Lesson.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @lessons = Lesson.all
     end

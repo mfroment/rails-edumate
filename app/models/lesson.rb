@@ -7,7 +7,7 @@ class Lesson < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   include PgSearch::Model
-  pg_search_scope :search,
+  pg_search_scope :global_search,
                   against: %i[title topic location],
                   associated_against: {
                     user: %i[first_name last_name]
