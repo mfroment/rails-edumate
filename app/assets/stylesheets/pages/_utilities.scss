@@ -38,3 +38,9 @@ body {
 .text-left {
   text-align: left;
 }
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
