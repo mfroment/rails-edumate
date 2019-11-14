@@ -57,3 +57,24 @@
 .faded {
   opacity: 0.5;
 }
+
+.small-card-lesson {
+  overflow: hidden;
+
+  width: 280px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 0 16px;
+  border-radius: 4px;
+}
+
+.small-card-lesson img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.small-card-lesson-infos {
+  padding: 32px;
+  text-align: left;
+}

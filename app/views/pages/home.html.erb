@@ -32,19 +32,30 @@
       <p>And a third equally poigniant selling point!</p>
     </div>
   </div>
-  <div class="recommended-classes text-center">
+  <div class="recommended-classes text-left pt-5">
     <div class="container">
-      <h1 class="text-white">Search for top lessons in your area</h1>
-       <div class="home-search">
-        <%= form_tag lessons_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "search-bar" %>
-          <%= button_tag type: "submit", class: "submit-button" do  %>
-            <i class="fas fa-search"></i>
+      <h1 class="text-white">Top lessons in Tokyo</h1>
+
+        <div class ="small-lessons-cards d-flex justify-content-center p-5">
+          <% @lessons.first(3).each do |lesson| %>
+            <div class="small-card-lesson">
+              <% if lesson.photo.file %>
+                <%= cl_image_tag lesson.photo, crop: :fill, alt: lesson.title %>
+              <% else %>
+                <%= image_tag "lesson_placeholder.png", alt: lesson.title %>
+              <% end %>
+              <div class="small-card-lesson-infos">
+                <h4><%= link_to lesson.title, lesson_path(lesson) %></h4>
+                <p><%= lesson.time.strftime("%d %B ") %></p>
+                <p><%= lesson.location %></p>
+                <div class="yellow-cta">
+                  <%= link_to "See More", lesson_path(lesson) %>
+                </div>
+              </div>
+            </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
     </div>
   </div>
 </div>
+

@@ -15,3 +15,17 @@
 .book-lesson-btn:hover {
   transform: scale(1.03);
 }
+
+.yellow-cta {
+  padding: 8px;
+  background-color: #E8C547;
+  border-radius: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow-cta a{
+  color: #696969;
+  text-decoration: none;
+}
