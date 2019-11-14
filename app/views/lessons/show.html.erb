@@ -38,4 +38,7 @@
       ></div>
     </div>
   </div>
+  <% if @lesson.user == current_user %>
+    <%= link_to "edit", edit_lesson_path(@lesson) %>
+  <% end %>
 </div>
