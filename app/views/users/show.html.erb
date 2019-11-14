@@ -26,40 +26,30 @@
   <% if @user == current_user %>
   <div id="content_1" class="tabcontent">
     <p><%= article %> Upcoming Bookings</p>
-    <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
-      <% if booking.lesson.time.to_f > Time.now.to_f %>
-        <%= render 'lessons/card', lesson: booking.lesson %>
-      <% end %>
+    <% Lesson.studied_by(@user).future.order(time: :asc).each do |lesson| %>
+      <%= render 'lessons/card', lesson: lesson %>
     <% end %>
+
     <p><%= article %> Past Bookings</p>
-    <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
-        <% if booking.lesson.time.to_f < Time.now.to_f %>
-          <div class="faded">
-            <%= render 'lessons/card', lesson: booking.lesson %>
-          </div>
-        <% end %>
+    <% Lesson.studied_by(@user).past.order(time: :desc).each do |lesson| %>
+      <div class="faded">
+        <%= render 'lessons/card', lesson: lesson %>
+      </div>
     <% end %>
-  <% end %>
-
   </div>
-
+  <% end %>
 
   <div id="content_2" class="tabcontent" style="display:none;">
     <p><%= article %> Upcoming Teachings</p>
-    <% @user.lessons_as_teacher.order(time: :asc).each do |lesson| %>
-      <% if lesson.time.to_f > Time.now.to_f %>
-        <%= render 'lessons/card', lesson: lesson %>
-      <% end %>
+    <% Lesson.taught_by(@user).future.order(time: :asc).each do |lesson| %>
+      <%= render 'lessons/card', lesson: lesson %>
     <% end %>
 
     <p><%= article %> Past Teachings</p>
-    <% @user.lessons_as_teacher.order(time: :desc).each do |lesson| %>
-      <% if lesson.time.to_f < Time.now.to_f %>
-        <div class="faded">
-          <%= render 'lessons/card', lesson: lesson %>
-        </div>
-      <% end %>
-
+    <% Lesson.taught_by(@user).past.order(time: :desc).each do |lesson| %>
+      <div class="faded">
+        <%= render 'lessons/card', lesson: lesson %>
+      </div>
     <% end %>
   </div>
 </div>
