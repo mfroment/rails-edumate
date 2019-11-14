@@ -5,12 +5,12 @@ class LessonsController < ApplicationController
     if @search.present?
       @query = @search["query"]
       if @query == ""
-        @lessons = Lesson.all
+        @lessons = Lesson.all.sort_by {|lesson| lesson.time}
       else
-        @lessons = Lesson.search(@query)
+        @lessons = Lesson.search(@query).sort_by {|lesson| lesson.time}
       end
     else
-      @lessons = Lesson.all
+      @lessons = Lesson.all.sort_by {|lesson| lesson.time}
     end
   end
 
