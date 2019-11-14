@@ -3,6 +3,11 @@
   background: #5D737E;
 }
 
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
 #navbar-edumate-name {
   color: white;
   font-family: "Righteous", serif;
@@ -42,5 +47,19 @@
 #nav-links a:hover {
   border-bottom: 1px solid white;
 }
+.nav-search-bar {
+  width: 250px;
+  height: 30px;
+    padding: 16px;
+    border: none;
+    border-radius: 64px;
+    opacity: 0.5;
+    margin-left: 32px;
+}
 
-
+.nav-submit-button {
+    border-radius: 82px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+}

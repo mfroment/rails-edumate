@@ -1,7 +1,19 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/" do %>
-    <h1 id="navbar-edumate-name">Edumate</h1>
-  <% end %>
+  <div class="navbar-left">
+    <%= link_to "/" do %>
+      <h1 id="navbar-edumate-name">Edumate</h1>
+    <% end %>
+    <div class="home-search">
+      <%= form_tag lessons_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "nav-search-bar" %>
+        <%= button_tag type: "submit", class: "nav-submit-button" do  %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <div id="nav-links">
     <%= link_to "All Lessons", lessons_path %>
     <% if current_user %>
@@ -10,5 +22,5 @@
     <% else %>
       <%= link_to "Login", new_user_session_path %>
     <% end %>
-    </div>
+  </div>
 </div>
