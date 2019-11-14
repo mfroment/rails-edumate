@@ -23,11 +23,11 @@ class LessonsController < ApplicationController
     @user = current_user
     @markers = [{ lat: @lesson.latitude,
                  lng: @lesson.longitude }]
-    if user_signed_in?
-      @booked = !(@user.bookings.select { |booking| booking.lesson_id == @lesson.id }.empty?)
-    else
-      @booked = false
-    end
+    # if user_signed_in?
+    #   @booked = !(@user.bookings.select { |booking| booking.lesson_id == @lesson.id }.empty?)
+    # else
+    #   @booked = false
+    # end
   end
 
   def new

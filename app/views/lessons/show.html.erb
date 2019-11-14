@@ -16,6 +16,18 @@
       <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.time.strftime("%I:%M %p") %></h2>
       <h2><%= @lesson.location %></h2>
+
+      <% if user_signed_in? && @lesson.taught_by?(current_user) %>
+        <h2>Students:</h2>
+        <ul>
+          <% @lesson.students.each do |student| %>
+            <li><%= user_full_name(student) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <h2><%= @lesson.students.count %> student(s) attending</h2>
+      <% end %>
+
       <div class="lesson-creator-box">
         <% if @lesson.photo.file %>
           <%= cl_image_tag @lesson.user.photo, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
@@ -25,14 +37,18 @@
         <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
       </div>
       <h1 class="lesson-desc-price">3,000 JPY</h1>
-       <!-- if user not logged in, booking -->
+       <!-- if past, expired; if teaching, edit; if bookable, book; if booked, cancel -->
+      <% if @lesson.past? %>
+        <div class="book-lesson-btn">Past Lesson</div>
+      <% elsif user_signed_in? && @lesson.taught_by?(current_user) %>
+        <%= link_to "edit", edit_lesson_path(@lesson), class: "book-lesson-btn" %>
+      <% elsif user_signed_in? && @lesson.studied_by?(current_user) %>
+        <div class="book-lesson-btn">Booked</div>
+      <% else %>
         <%= simple_form_for [@lesson, @booking] do |b| %>
-          <% if @booked %>
-            <%= b.submit "Booked", :class => "book-lesson-btn", disabled: true %>
-           <% else %>
-            <%= b.submit "Book now", :class => "book-lesson-btn" %>
-          <% end %>
+          <%= b.submit "Book now", :class => "book-lesson-btn" %>
         <% end %>
+      <% end %>
       <div
         id="map"
         data-markers="<%= @markers.to_json %>"
@@ -40,7 +56,4 @@
       ></div>
     </div>
   </div>
-  <% if @lesson.user == current_user %>
-    <%= link_to "edit", edit_lesson_path(@lesson) %>
-  <% end %>
 </div>
