@@ -45,7 +45,7 @@ class LessonsController < ApplicationController
       @user = current_user
       @lesson.user = @user
       if @lesson.save
-        redirect_to lesson_path(@lesson)
+        redirect_to lesson_path(@lesson), :notice =>"Lesson was successfully added"
       else
         render 'new'
       end
@@ -60,7 +60,7 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update(lesson_params)
-      redirect_to lesson_path(@lesson)
+      redirect_to lesson_path(@lesson), :notice =>"Lesson was successfully updated"
     else
       render :edit
     end
