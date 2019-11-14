@@ -2,6 +2,12 @@ class Lesson < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :students, through: :bookings, source: :user
+  validates :title, presence: true
+  validates :topic, presence: true
+  validates :location, presence: true
+  validates :description, presence: true
+  validates :photo, presence: true
+  validates :time, presence: true
 
   scope :past, -> { where('time < ?', Time.now) }
   scope :future, -> { where.not('time < ?', Time.now) }
