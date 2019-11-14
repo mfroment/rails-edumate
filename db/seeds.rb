@@ -1,14 +1,10 @@
-require 'yaml'
-
-require 'faker'
-
-
 def edumate_seed_photo_url(photo_file)
   "https://res.cloudinary.com/dnoaxk4lw/image/upload/edumate/seed/#{photo_file}.jpg"
 end
 
 def forward_time
-  Faker::Time.forward(days: 5,  period: :evening, format: :long)[0...-2]+"00"
+  Faker::Time.between_dates(from: 2.days.from_now , to: 10.days.from_now,
+                            period: :evening, format: :long)[0...-2]+"00"
 end
 
 def backward_time
