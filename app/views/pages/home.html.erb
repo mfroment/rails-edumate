@@ -5,8 +5,10 @@
       <h3 class="text-white">Learn what you love</h3>
       <p>Explore hundreds of lessons today.</p>
       <div class="home-search">
-        <%= simple_form_for :search, url: lessons_path, method: :get do |f| %>
-          <%= f.input_field :query, class: "search-bar", input_html: { value: "" } %>
+        <%= form_tag lessons_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "search-bar" %>
           <%= button_tag type: "submit", class: "submit-button" do  %>
             <i class="fas fa-search"></i>
           <% end %>
