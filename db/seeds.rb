@@ -47,6 +47,7 @@ seed_data['users'].each do |user|
   puts " Added #{user['slug']}"
 end
 
+LOCATIONS = ['Tokyo', 'Meguro', 'Shinagawa', 'Roppongi', 'Shibuya', 'Shinjuku']
 # Lesson
 puts "Seeding Lesson"
 lessons = {}
@@ -56,7 +57,7 @@ seed_data['lessons'].each do |lesson|
      topic: lesson['topic'],
      user: users[lesson['user_slug']],
      remote_photo_url: edumate_seed_photo_url(lesson['photo_file']),
-     location: Faker::Nation.capital_city,
+     location: LOCATIONS.sample,
      time: send(lesson['time'])
    })
   puts " Added #{lesson['slug']}"
