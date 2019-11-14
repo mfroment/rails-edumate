@@ -1,8 +1,6 @@
 <div class="container fill">
   <h1 class="text-center my-3">Lessons</h1>
   <% @lessons.each do |lesson| %>
-    <% if lesson.time.to_f > Time.now.to_f %>
-        <%= render 'lessons/card', lesson: lesson %>
-    <% end %>
+    <%= render 'lessons/card', lesson: lesson %>
   <% end %>
 </div>
