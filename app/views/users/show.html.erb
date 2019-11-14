@@ -1,18 +1,33 @@
-
 <div class="container fill pt-3">
+  <% if @user == current_user %>
   <h1>Hello, <%= @user.first_name %></h1>
+  <% else %>
+  <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+  <% end %>
 
+  <% if @user == current_user %>
   <h4 class="pt-3 pb-3">My Bookings</h4>
+  <% else %>
+  <h4 class="pt-3 pb-3">Their Bookings</h4>
+  <% end %>
 
   <!-- sort user lessons by time, reverse order  -->
+  <% if @user == current_user %>
   <p>Your Upcoming Lessons</p>
-  <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.each do |booking| %>
+  <% else %>
+  <p>Their Upcoming Lessons</p>
+  <% end %>
+  <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
     <% if booking.lesson.time.to_f > Time.now.to_f %>
           <%= render 'lessons/card', lesson: booking.lesson %>
     <% end %>
   <% end %>
 
+  <% if @user == current_user %>
   <p>Your Past Lessons</p>
+  <% else %>
+  <p>Their Past Lessons</p>
+  <% end %>
   <% @user.bookings.sort_by { |booking| booking.lesson[:time] }.reverse.each do |booking| %>
       <% if booking.lesson.time.to_f < Time.now.to_f %>
         <%= render 'lessons/card', lesson: booking.lesson %>
