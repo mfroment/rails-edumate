@@ -6,7 +6,9 @@
       <% else %>
         <%= image_tag "lesson_placeholder.png", alt: @lesson.title %>
       <% end %>
-      <p><%= @lesson.description %></p>
+      <% if @lesson.description %>
+        <p><%= @lesson.description %></p>
+      <% end %>
     </div>
     <div class="lesson-desc">
       <h1><%= @lesson.title %></h1>
