@@ -8,7 +8,9 @@
         <%= image_tag "lesson_placeholder.png", alt: @lesson.title %>
       <% end %>
       <% if @lesson.description %>
-        <p><%= @lesson.description %></p>
+        <div class="lesson-description">
+          <p><%= @lesson.description %></p>
+        </div>
       <% end %>
     </div>
     <div class="lesson-desc">
