@@ -1,4 +1,5 @@
-<div class="container fill lesson-show-container">
+<div class="container">
+<div class="container lesson-show-container">
   <div class="lesson-flex-box"/>
     <div class="lesson-image">
       <% if @lesson.photo.file %>
@@ -51,11 +52,14 @@
           <%= b.submit "Book now", :class => "book-lesson-btn free-btn" %>
         <% end %>
       <% end %>
-      <div
+    </div>
+  </div>
+
+</div>
+  <div
         id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-    </div>
-  </div>
+
 </div>
