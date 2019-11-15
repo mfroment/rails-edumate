@@ -14,7 +14,7 @@
   color: $highlight;
 }
 
-.card-lesson img {
+.card-lesson .card-image img {
   height: 100%;
   width: 192px;
   object-fit: cover;
@@ -34,6 +34,20 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-lesson .card-image {
+  position: relative;
+  text-align: center;
+}
+
+.card-lesson .card-image .card-overlay {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+  text-size: 30px;
 }
 
 .card-lesson .card-lesson-infos {
@@ -99,8 +113,13 @@
 
   }
 
-  .card-lesson img {
+  .card-lesson .card-image {
     height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-image img {
+    height: 100%;
     width: 100%;
   }
 
@@ -141,8 +160,13 @@
 
   }
 
-  .card-lesson img {
+  .card-lesson .card-image {
     height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-image img {
+    height: 100%;
     width: 100%;
   }
 

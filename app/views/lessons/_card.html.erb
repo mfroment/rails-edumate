@@ -1,9 +1,18 @@
 <div class="card-lesson my-3">
-  <% if lesson.photo.file %>
-    <%= cl_image_tag lesson.photo, crop: :fill, alt: lesson.title %>
-  <% else %>
-    <%= image_tag "lesson_placeholder.png", alt: lesson.title %>
-  <% end %>
+  <div class="card-image">
+    <% if lesson.photo.file %>
+      <%= cl_image_tag lesson.photo, crop: :fill, alt: lesson.title %>
+    <% else %>
+      <%= image_tag "lesson_placeholder.png", alt: lesson.title %>
+    <% end %>
+    <div class="card-overlay">
+      <% if user_signed_in? && lesson.studied_by?(current_user) %>
+        <i class="fas fa-graduation-cap"></i>
+      <% elsif user_signed_in? && lesson.taught_by?(current_user) %>
+        <i class="fas fa-chalkboard-teacher"></i>
+      <% end %>
+    </div>
+  </div>
   <div class="card-lesson-infos">
       <div class="card-lesson-infos-left">
         <h4><%= link_to lesson.title, lesson_path(lesson) %></h4>
