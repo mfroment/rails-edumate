@@ -3,5 +3,4 @@ class PagesController < ApplicationController
   def home
     @lessons = Lesson.future
   end
-
 end
