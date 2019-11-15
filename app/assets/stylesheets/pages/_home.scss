@@ -67,6 +67,10 @@
     margin: 32px 0;
   }
 
+  .navbar .home-search {
+    display: none;
+  }
+
 }
 
 @media all and (max-width: 480px) {
@@ -83,6 +87,15 @@
     width: 320px;
   }
 
+  .navbar {
+    justify-content: left;
+    align-items: center;
+  }
+
+  #nav-links a {
+    margin-left: 12px;
+  }
+
   .navbar .home-search {
     display: none;
   }
@@ -93,7 +106,7 @@
     text-align: center;
   }
 
-    .recommended-classes {
+  .recommended-classes {
     width: 100%;
     flex-direction: flex-column;
   }
