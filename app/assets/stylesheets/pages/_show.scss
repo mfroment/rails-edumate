@@ -73,6 +73,11 @@
 .lesson-desc-price {
   color: #1A1A1A;
 }
+.lesson-students li a {
+  text-decoration: none;
+  color: $highlight;
+  margin: 0 8px 0 0;
+}
 
 
 @media all and (min-width: 480px) and (max-width: 991px) {
