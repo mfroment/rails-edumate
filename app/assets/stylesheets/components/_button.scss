@@ -6,11 +6,25 @@
   border-radius: 64px;
   font-weight: bold;
   font-size: 24px;
-  transition: transform 0.5s;
   border: 0;
 }
+.booked-btn {
+  text-align: center;
+  padding-top: 16px;
+  background: #5C80BC;
+  color: #CDD1C4;
+}
+.past-btn {
+  text-align: center;
+  padding-top: 16px;
+  background: #4D5061;
+  color: #CDD1C4;
+}
+.free-btn {
+  transition: transform 0.5s;
+}
 
-.book-lesson-btn:hover {
+.free-btn:hover {
   transform: scale(1.03);
 }
 

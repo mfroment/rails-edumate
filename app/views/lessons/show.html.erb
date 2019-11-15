@@ -40,14 +40,14 @@
       <h1 class="lesson-desc-price">¥<%= @lesson.price %></h1>
        <!-- if past, expired; if teaching, edit; if bookable, book; if booked, cancel -->
       <% if @lesson.past? %>
-        <div class="book-lesson-btn">Past Lesson</div>
+        <div class="book-lesson-btn past-btn">Past Lesson</div>
       <% elsif user_signed_in? && @lesson.taught_by?(current_user) %>
-        <%= link_to "edit", edit_lesson_path(@lesson), class: "book-lesson-btn" %>
+        <%= button_to "Edit lesson", edit_lesson_path(@lesson), method: :get, class: "book-lesson-btn free-btn" %>
       <% elsif user_signed_in? && @lesson.studied_by?(current_user) %>
-        <div class="book-lesson-btn">Booked</div>
+        <div class="book-lesson-btn booked-btn">Booked</div>
       <% else %>
         <%= simple_form_for [@lesson, @booking] do |b| %>
-          <%= b.submit "Book now", :class => "book-lesson-btn" %>
+          <%= b.submit "Book now", :class => "book-lesson-btn free-btn" %>
         <% end %>
       <% end %>
       <div
