@@ -1,16 +1,18 @@
 #map {
   margin-top: 30px;
   width: 100%;
-  height: 400px;
+  height: 480px;
   border-radius: 15px;
 }
 .mapboxgl-canvas {
+  width: 100%;
+  height: 480px;
   padding: 32px 0;
   border-radius: 4px;
 }
 
 .lesson-show-container {
-  padding: 32px 0;
+  padding-top: 32px;
   background: #FCFCFC;
   height: 100%;
 }

@@ -1,6 +1,10 @@
 <div class="container fill user-show">
   <% if @user == current_user %>
     <h1>Hello, <%= @user.first_name %></h1>
+    <div class="profile-options">
+      <%= link_to "Edit profile", edit_user_path(@user) %>
+      <%= link_to "+ Teach a Class", new_user_lesson_path(current_user) %>
+    </div>
   <% else %>
     <h1><%= user_full_name(@user) %></h1>
   <% end %>
@@ -16,9 +20,6 @@
       <a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Teaching</a>
     </li>
     <% if @user == current_user %>
-    <li>
-      <%= link_to "Edit profile", edit_user_path(@user) %>
-    </li>
     <% end %>
   </ul>
 
