@@ -84,3 +84,116 @@
   color: #5C80BC;
   padding-right: 16px;
 }
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .card-lesson a {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .card-lesson {
+    height: 400px;
+    flex-direction: column;
+
+  }
+
+  .card-lesson img {
+    height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-lesson-infos {
+    width: 100%;
+  }
+
+  .card-lesson p {
+    margin: 0;
+  }
+
+  .card-lesson-infos {
+    height: 100%;
+  }
+
+  .card-lesson .card-lesson-infos-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+  }
+
+   .card-lesson .card-lesson-infos-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+  }
+
+}
+
+@media all and (max-width: 480px) {
+  .card-lesson {
+    height: 400px;
+    flex-direction: column;
+
+  }
+
+  .card-lesson img {
+    height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-lesson-infos {
+    width: 100%;
+  }
+
+  .card-lesson p {
+    margin: 0;
+  }
+
+  .card-lesson-infos {
+    height: 100%;
+
+  }
+
+  .card-lesson .card-lesson-infos-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+    max-width: 50%;
+  }
+
+   .card-lesson .card-lesson-infos-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+    max-width: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
