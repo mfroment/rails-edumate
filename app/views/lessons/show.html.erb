@@ -27,16 +27,16 @@
         <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
       </div>
 
+      <h2><%= pluralize_with_no("student", @lesson.students.count).capitalize %>
+        <%= @lesson.past? ? "attended" : "attending" %></h2>
       <% if user_signed_in? && @lesson.taught_by?(current_user) %>
-        <h2>Students:</h2>
-        <ul>
+        <ul class="lesson-students list-inline">
           <% @lesson.students.each do |student| %>
-            <li><%= user_full_name(student) %></li>
+            <li class="list-inline-item">
+              <%= link_to user_full_name(student), user_path(student) %>
+            </li>
           <% end %>
         </ul>
-      <% else %>
-        <h2><%= pluralize_with_no("student", @lesson.students.count).capitalize %>
-            <%= @lesson.past? ? "attended" : "attending" %></h2>
       <% end %>
 
       <h1 class="lesson-desc-price">¥<%= number_with_delimiter(@lesson.price, delimiter: ',') %></h1>
