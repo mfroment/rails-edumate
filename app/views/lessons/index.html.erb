@@ -1,5 +1,10 @@
 <div class="container fill">
-  <h1 class="text-center my-3">Lessons</h1>
+  <div class="header-section">
+    <h1 class="text-left my-3">Lessons</h1>
+    <div class="yellow-cta">
+      <%= link_to "+ Add a Class", new_user_lesson_path(current_user) %>
+    </div>
+  </div>
   <% @lessons.each do |lesson| %>
     <%= render 'lessons/card', lesson: lesson %>
   <% end %>
