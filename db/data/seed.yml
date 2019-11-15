@@ -81,7 +81,7 @@ lessons:
     topic: 'Sports'
     description: 'Meet other local skiers & snowboarders to get out and enjoy the mountains. I offer both local and out-of-area ski & snowboard trips, carpools, weekend ski houses, regular social events, and advice to save you $ on lift tickets. We welcome skiers and boarders of all skill levels. Come join me on the slopes!'
     user_slug: takeshi
-    photo_file: 'lessons-06'
+    photo_file: 'lessons-10'
     time: forward_time
   - slug: gymnastics
     title: 'Gymnastics'
