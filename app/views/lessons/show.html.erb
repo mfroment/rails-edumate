@@ -17,6 +17,15 @@
       <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.location %></h2>
 
+      <div class="lesson-creator-box">
+        <% if @lesson.photo.file %>
+          <%= cl_image_tag @lesson.user.photo, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
+        <% else %>
+          <%= image_tag "user_placeholder.png", alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
+        <% end %>
+        <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
+      </div>
+
       <% if user_signed_in? && @lesson.taught_by?(current_user) %>
         <h2>Students:</h2>
         <ul>
@@ -29,15 +38,7 @@
             <%= @lesson.past? ? "attended" : "attending" %></h2>
       <% end %>
 
-      <div class="lesson-creator-box">
-        <% if @lesson.photo.file %>
-          <%= cl_image_tag @lesson.user.photo, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
-        <% else %>
-          <%= image_tag "user_placeholder.png", alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
-        <% end %>
-        <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
-      </div>
-      <h1 class="lesson-desc-price">¥<%= @lesson.price %></h1>
+      <h1 class="lesson-desc-price">¥<%= number_with_delimiter(@lesson.price, delimiter: ',') %></h1>
        <!-- if past, expired; if teaching, edit; if bookable, book; if booked, cancel -->
       <% if @lesson.past? %>
         <div class="book-lesson-btn past-btn">Past Lesson</div>
