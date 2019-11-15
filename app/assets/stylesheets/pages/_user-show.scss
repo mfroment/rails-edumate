@@ -22,7 +22,7 @@
   color: $dark-gray;
 }
 
-.lesson-tabs li a:focus {
+.lesson-tabs li a.active {
   text-decoration: none;
   border-bottom: 5px solid #E8C547;
 }
