@@ -1,19 +1,19 @@
 <div class="container fill user-show">
   <% if @user == current_user %>
     <h1>Hello, <%= @user.first_name %></h1>
-    <% article = "My" %>
   <% else %>
     <h1><%= user_full_name(@user) %></h1>
-    <% article = "Their" %>
   <% end %>
 
   <!-- JS Tabs -->
   <ul class="lesson-tabs">
+    <% if @user == current_user %>
     <li>
-      <a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">My Classes</a>
+      <a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">Learning</a>
     </li>
+    <% end %>
     <li>
-      <a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">My Teachings</a>
+      <a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">Teaching</a>
     </li>
     <% if @user == current_user %>
     <li>
@@ -25,41 +25,56 @@
   <!-- sort user lessons by time, reverse order  -->
   <% if @user == current_user %>
   <div id="content_1" class="tabcontent">
-    <p><%= article %> Upcoming Bookings</p>
-    <% Lesson.studied_by(@user).future.order(time: :asc).each do |lesson| %>
-      <%= render 'lessons/card', lesson: lesson %>
+    <% sublist = Lesson.studied_by(@user).future.order(time: :asc) %>
+    <% unless sublist.empty? %>
+      <p>Upcoming</p>
+      <% sublist.each do |lesson| %>
+        <%= render 'lessons/card', lesson: lesson %>
+      <% end %>
     <% end %>
 
-    <p><%= article %> Past Bookings</p>
-    <% Lesson.studied_by(@user).past.order(time: :desc).each do |lesson| %>
-      <div class="faded">
-        <%= render 'lessons/card', lesson: lesson %>
-      </div>
+    <% sublist = Lesson.studied_by(@user).past.order(time: :desc) %>
+    <% unless sublist.empty? %>
+      <p>Past</p>
+      <% sublist.each do |lesson| %>
+        <div class="faded">
+          <%= render 'lessons/card', lesson: lesson %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <% end %>
 
-  <div id="content_2" class="tabcontent" style="display:none;">
-    <p><%= article %> Upcoming Teachings</p>
-    <% Lesson.taught_by(@user).future.order(time: :asc).each do |lesson| %>
-      <%= render 'lessons/card', lesson: lesson %>
+  <div id="content_2" class="tabcontent"
+    <%= @user == current_user ? 'style="display:none;"' : '' %>
+  >
+    <% sublist = Lesson.taught_by(@user).future.order(time: :asc) %>
+    <% unless sublist.empty? %>
+      <p>Upcoming</p>
+      <% sublist.each do |lesson| %>
+        <%= render 'lessons/card', lesson: lesson %>
+      <% end %>
     <% end %>
 
-    <p><%= article %> Past Teachings</p>
-    <% Lesson.taught_by(@user).past.order(time: :desc).each do |lesson| %>
-      <div class="faded">
-        <%= render 'lessons/card', lesson: lesson %>
-      </div>
+    <% sublist = Lesson.taught_by(@user).past.order(time: :desc) %>
+    <% unless sublist.empty? %>
+      <p>Past</p>
+      <% sublist.each do |lesson| %>
+        <div class="faded">
+          <%= render 'lessons/card', lesson: lesson %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
 
 <script>
-
-  //autofocus
-
-  var a_focus = document.getElementById('content_1');
-  if(a_focus) a_focus.focus();
+// initial click
+<% if @user == current_user %>
+  rudrSwitchTab('tb_1', 'content_1');
+<% else %>
+  rudrSwitchTab('tb_2', 'content_2');
+<% end %>
 
   //tab function
 function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
