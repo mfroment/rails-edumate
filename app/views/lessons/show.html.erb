@@ -37,7 +37,7 @@
         <% end %>
         <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
       </div>
-      <h1 class="lesson-desc-price">3,000 JPY</h1>
+      <h1 class="lesson-desc-price">¥<%= @lesson.price %></h1>
        <!-- if past, expired; if teaching, edit; if bookable, book; if booked, cancel -->
       <% if @lesson.past? %>
         <div class="book-lesson-btn">Past Lesson</div>

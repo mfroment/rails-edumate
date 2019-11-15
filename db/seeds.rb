@@ -44,6 +44,7 @@ seed_data['users'].each do |user|
 end
 
 LOCATIONS = ['Tokyo', 'Meguro', 'Shinagawa', 'Roppongi', 'Shibuya', 'Shinjuku']
+PRICES = ['3000', '2700', '5800', '4900', '3700', '7600', '6600']
 # Lesson
 puts "Seeding Lesson"
 lessons = {}
@@ -55,7 +56,8 @@ seed_data['lessons'].each do |lesson|
      description: lesson['description'],
      remote_photo_url: edumate_seed_photo_url(lesson['photo_file']),
      location: LOCATIONS.sample,
-     time: send(lesson['time'])
+     time: send(lesson['time']),
+     price: PRICES.sample
    })
   puts " Added #{lesson['slug']}"
 end
