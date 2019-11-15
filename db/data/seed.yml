@@ -59,7 +59,7 @@ lessons:
     title: 'Ruby Programming'
     topic: 'Programming'
     description: 'This workshop has a focus on Ruby on Rails engineering best practices and principles along with emerging Rails technologies. I focus my lessons on mixing Rails with new and emerging technologies as much as possible. Examples of this will range from using Rails with Big Data and high frequency trading to using rails to develop apps for robots, and new medical devices.'
-    user_slug: gerard
+    user_slug: tom
     photo_file: 'lessons-03'
     time: forward_time
   - slug: physics
@@ -106,7 +106,7 @@ lessons:
     time: backward_time
 
 bookings:
-  - user_slug: maxime
+  - user_slug: gerard
     lesson_slug: helicopter
   - user_slug: jy
     lesson_slug: helicopter
@@ -114,15 +114,15 @@ bookings:
     lesson_slug: helicopter
   - user_slug: kanami
     lesson_slug: helicopter
-  - user_slug: jack
+  - user_slug: gerard
     lesson_slug: public_speaking
   - user_slug: tom
     lesson_slug: public_speaking
   - user_slug: jy
-    lesson_slug: public_speaking
+    lesson_slug: physics
   - user_slug: yoshi
     lesson_slug: physics
-  - user_slug: minami
+  - user_slug: gerard
     lesson_slug: gymnastics
   - user_slug: takeshi
     lesson_slug: italian_cooking
