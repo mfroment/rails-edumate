@@ -110,12 +110,12 @@ bookings:
     lesson_slug: helicopter
   - user_slug: jy
     lesson_slug: helicopter
-  - user_slug: maxime
+  - user_slug: tom
     lesson_slug: helicopter
   - user_slug: kanami
     lesson_slug: helicopter
   - user_slug: jack
-    lesson_slug: helicopter
+    lesson_slug: public_speaking
   - user_slug: tom
     lesson_slug: public_speaking
   - user_slug: jy
