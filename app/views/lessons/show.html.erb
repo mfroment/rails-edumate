@@ -13,8 +13,8 @@
     <div class="lesson-desc">
       <h1><%= @lesson.title %></h1>
       <h2><%= @lesson.topic %></h2>
-      <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.time.strftime("%I:%M %p") %></h2>
+      <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.location %></h2>
 
       <% if user_signed_in? && @lesson.taught_by?(current_user) %>
