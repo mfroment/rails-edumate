@@ -70,22 +70,14 @@
 </div>
 
 <script>
-<<<<<<< Updated upstream
 // initial click
 <% if @user == current_user %>
   rudrSwitchTab('tb_1', 'content_1');
 <% else %>
   rudrSwitchTab('tb_2', 'content_2');
 <% end %>
-=======
 
-  //autofocus
-
-  var a_focus = document.getElementById('tb_1');
-  if(a_focus) a_focus.focus-visible();
->>>>>>> Stashed changes
-
-  //tab function
+//tab function
 function rudrSwitchTab(rudr_tab_id, rudr_tab_content) {
   var x = document.getElementsByClassName("tabcontent");
   var i;
