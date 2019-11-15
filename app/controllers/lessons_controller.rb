@@ -50,7 +50,6 @@ class LessonsController < ApplicationController
         render 'new'
       end
     else
-      # TODO: redirect to lesson page after login if possible :)
       redirect_to new_user_session_path
     end
   end
@@ -69,7 +68,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:title, :topic, :location, :photo, :description, :time)
+    params.require(:lesson).permit(:title, :topic, :location, :photo, :description, :time, :price)
   end
 
   def set_lesson

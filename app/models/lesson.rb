@@ -8,6 +8,7 @@ class Lesson < ApplicationRecord
   validates :description, presence: true
   validates :photo, presence: true
   validates :time, presence: true
+  validates :price, presence: true
 
   scope :past, -> { where('time < ?', Time.now) }
   scope :future, -> { where.not('time < ?', Time.now) }
