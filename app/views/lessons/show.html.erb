@@ -25,7 +25,8 @@
           <% end %>
         </ul>
       <% else %>
-        <h2><%= @lesson.students.count %> student(s) attending</h2>
+        <h2><%= pluralize_with_no("student", @lesson.students.count).capitalize %>
+            <%= @lesson.past? ? "attended" : "attending" %></h2>
       <% end %>
 
       <div class="lesson-creator-box">
