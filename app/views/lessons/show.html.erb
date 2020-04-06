@@ -2,8 +2,8 @@
 <div class="container lesson-show-container">
   <div class="lesson-flex-box"/>
     <div class="lesson-image">
-      <% if @lesson.photo.file %>
-        <%= cl_image_tag @lesson.photo, crop: :fill, alt: @lesson.title %>
+      <% if @lesson.photo.attached? %>
+        <%= cl_image_tag @lesson.photo.key, crop: :fill, alt: @lesson.title %>
       <% else %>
         <%= image_tag "lesson_placeholder.png", alt: @lesson.title %>
       <% end %>
@@ -21,8 +21,8 @@
       <h2><%= @lesson.location %></h2>
 
       <div class="lesson-creator-box">
-        <% if @lesson.photo.file %>
-          <%= cl_image_tag @lesson.user.photo, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
+        <% if @lesson.photo.attached? %>
+          <%= cl_image_tag @lesson.user.photo.key, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
         <% else %>
           <%= image_tag "user_placeholder.png", alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
         <% end %>

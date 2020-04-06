@@ -38,8 +38,8 @@ seed_data['users'].each do |user|
     last_name: user['last_name'],
     email: "#{user['first_name'].downcase}@#{user['last_name'].downcase}.org",
     password: 'secret',
-    remote_photo_url: edumate_seed_photo_url(user['photo_file'])
   })
+  users[user['slug']].photo.attach(io: URI.open(edumate_seed_photo_url(user['photo_file'])), filename: "#{user['photo_file']}.jpg")
   puts " Added #{user['slug']}"
 end
 
@@ -54,12 +54,12 @@ seed_data['lessons'].each do |lesson|
      topic: lesson['topic'],
      user: users[lesson['user_slug']],
      description: lesson['description'],
-     remote_photo_url: edumate_seed_photo_url(lesson['photo_file']),
      location: LOCATIONS.sample,
      time: send(lesson['time']),
      price: PRICES.sample
    })
-  puts " Added #{lesson['slug']}"
+   lessons[lesson['slug']].photo.attach(io: URI.open(edumate_seed_photo_url(lesson['photo_file'])), filename: lesson['photo_file'])
+   puts " Added #{lesson['slug']}"
 end
 
 # Booking
