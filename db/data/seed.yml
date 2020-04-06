@@ -34,7 +34,7 @@ users:
   - slug: yoshi
     first_name: 'Yoshikazu'
     last_name: 'Inoue'
-    photo_file: 'users-yoshi'
+    photo_file: 'users-takeshi'
   - slug: kanami
     first_name: 'Kanami'
     last_name: 'Matsumoto'
