@@ -9,9 +9,7 @@
         required: false %>
         <%= f.input :email,
         required: false %>
-        <%= f.input :photo,
-        required: false %>
-        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :photo, as: :file, required: false %>
       </div>
       <div class="form-actions">
         <%= f.button :submit %>

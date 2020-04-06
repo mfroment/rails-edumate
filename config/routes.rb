@@ -8,5 +8,3 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home'
 end
-
-

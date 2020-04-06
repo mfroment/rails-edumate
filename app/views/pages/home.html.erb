@@ -39,8 +39,8 @@
         <div class ="small-lessons-cards d-flex justify-content-center p-5">
           <% @lessons.first(3).each do |lesson| %>
             <div class="small-card-lesson">
-              <% if lesson.photo.file %>
-                <%= cl_image_tag lesson.photo, crop: :fill, alt: lesson.title %>
+              <% if lesson.photo.attached? %>
+                <%= cl_image_tag lesson.photo.key, crop: :fill, alt: lesson.title %>
               <% else %>
                 <%= image_tag "lesson_placeholder.png", alt: lesson.title %>
               <% end %>

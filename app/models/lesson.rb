@@ -2,11 +2,12 @@ class Lesson < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :students, through: :bookings, source: :user
+  has_one_attached :photo
   validates :title, presence: true
   validates :topic, presence: true
   validates :location, presence: true
   validates :description, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
   validates :time, presence: true
   validates :price, presence: true
 
@@ -17,8 +18,6 @@ class Lesson < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
-  mount_uploader :photo, PhotoUploader
 
   include PgSearch::Model
   pg_search_scope :global_search,

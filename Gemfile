@@ -6,7 +6,7 @@ gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -18,8 +18,7 @@ gem 'webpacker'
 
 # added
 gem 'faker'
-gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.12.0'
 gem 'pg_search', '~> 2.3.0'
 gem 'geocoder'
 
