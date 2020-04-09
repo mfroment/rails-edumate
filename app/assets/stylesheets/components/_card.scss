@@ -14,7 +14,7 @@
   color: $highlight;
 }
 
-.card-lesson img {
+.card-lesson .card-image img {
   height: 100%;
   width: 192px;
   object-fit: cover;
@@ -36,6 +36,20 @@
   margin-top: 8px;
 }
 
+.card-lesson .card-image {
+  position: relative;
+  text-align: center;
+}
+
+.card-lesson .card-image .card-overlay {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: $yellow;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+  font-size: 1.5em;
+}
+
 .card-lesson .card-lesson-infos {
   display: flex;
   justify-content: space-between;
@@ -50,6 +64,160 @@
 }
 
 .card-lesson .card-lesson-infos-right {
-  text-align: right;
+  text-align: left;
+  width: 240px;
   height: 100%;
 }
+
+.faded {
+  opacity: 0.5;
+}
+
+.small-card-lesson {
+  overflow: hidden;
+
+  width: 280px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 0 16px;
+  border-radius: 4px;
+}
+
+.small-card-lesson img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.small-card-lesson-infos {
+  padding: 32px;
+  text-align: left;
+}
+
+.card-icon {
+  color: #5C80BC;
+  padding-right: 16px;
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .card-lesson a {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .card-lesson {
+    height: 400px;
+    flex-direction: column;
+
+  }
+
+  .card-lesson .card-image {
+    height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-image img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .card-lesson .card-lesson-infos {
+    width: 100%;
+  }
+
+  .card-lesson p {
+    margin: 0;
+  }
+
+  .card-lesson-infos {
+    height: 100%;
+  }
+
+  .card-lesson .card-lesson-infos-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+  }
+
+   .card-lesson .card-lesson-infos-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+  }
+
+}
+
+@media all and (max-width: 480px) {
+  .card-lesson {
+    height: 400px;
+    flex-direction: column;
+
+  }
+
+  .card-lesson .card-image {
+    height: 50%;
+    width: 100%;
+  }
+
+  .card-lesson .card-image img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .card-lesson .card-lesson-infos {
+    width: 100%;
+  }
+
+  .card-lesson p {
+    margin: 0;
+  }
+
+  .card-lesson-infos {
+    height: 100%;
+
+  }
+
+  .card-lesson .card-lesson-infos-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+    max-width: 50%;
+  }
+
+   .card-lesson .card-lesson-infos-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 16px;
+    max-width: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

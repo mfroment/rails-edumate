@@ -1,17 +1,46 @@
 .book-lesson-btn {
-  width: 320px;
+  width: 240px;
   height: 64px;
   margin-top: 8px;
   background: #F2CD5D;
-  border-radius: 4px;
+  border-radius: 64px;
   font-weight: bold;
   font-size: 24px;
-  border-style: solid;
-  border-width: thin;
-  border-color: rgba(0, 0, 0, 0.1);
+  border: 0;
+}
+.booked-btn {
+  text-align: center;
+  padding-top: 16px;
+  background: #5C80BC;
+  color: #CDD1C4;
+}
+.past-btn {
+  text-align: center;
+  padding-top: 16px;
+  background: #4D5061;
+  color: #CDD1C4;
+}
+.free-btn {
   transition: transform 0.5s;
 }
 
-.book-lesson-btn:hover {
+.free-btn:hover {
   transform: scale(1.03);
+}
+
+.yellow-cta {
+  padding: 8px;
+  background-color: #E8C547;
+  border-radius: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow-cta a{
+  color: #696969;
+  text-decoration: none;
+}
+.login-btn {
+  margin-bottom: 16px;
 }

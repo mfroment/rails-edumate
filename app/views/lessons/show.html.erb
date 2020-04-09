@@ -1,42 +1,67 @@
-<div class="container fill lesson-show-container">
+<div class="container">
+<div class="container lesson-show-container">
   <div class="lesson-flex-box"/>
     <div class="lesson-image">
-      <% if @lesson.photo.file %>
-        <%= cl_image_tag @lesson.photo, crop: :fill, alt: @lesson.title %>
+      <% if @lesson.photo.attached? %>
+        <%= cl_image_tag @lesson.photo.key, crop: :fill, alt: @lesson.title %>
       <% else %>
         <%= image_tag "lesson_placeholder.png", alt: @lesson.title %>
       <% end %>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <% if @lesson.description %>
+        <div class="lesson-description">
+          <p><%= @lesson.description %></p>
+        </div>
+      <% end %>
     </div>
     <div class="lesson-desc">
       <h1><%= @lesson.title %></h1>
       <h2><%= @lesson.topic %></h2>
-      <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.time.strftime("%I:%M %p") %></h2>
+      <h2><%= @lesson.time.strftime("%A, %d %B ")%></h2>
       <h2><%= @lesson.location %></h2>
+
       <div class="lesson-creator-box">
-        <% if @lesson.photo.file %>
-          <%= cl_image_tag @lesson.user.photo, crop: :fill, alt: @lesson.user.full_name, class: "lesson-avatar" %>
+        <% if @lesson.photo.attached? %>
+          <%= cl_image_tag @lesson.user.photo.key, crop: :fill, alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
         <% else %>
-          <%= image_tag "user_placeholder.png", alt: @lesson.user.full_name, class: "lesson-avatar" %>
+          <%= image_tag "user_placeholder.png", alt: user_full_name(@lesson.user), class: "lesson-avatar" %>
         <% end %>
-        <h3><%= @lesson.user.full_name %></h3>
+        <h3><%= link_to user_full_name(@lesson.user), user_path(@lesson.user) %></h3>
       </div>
-      <h1 class="lesson-desc-price">3,000 JPY</h1>
-       <!-- if user not logged in, booking -->
-        <%= simple_form_for [@lesson, @booking] do |b| %>
-          <% if @booked %>
-            <%= b.submit "Booked", :class => "book-lesson-btn", disabled: true %>
-           <% else %>
-            <%= b.submit "Book now", :class => "book-lesson-btn" %>
+
+      <h2><%= pluralize_with_no("student", @lesson.students.count).capitalize %>
+        <%= @lesson.past? ? "attended" : "attending" %></h2>
+      <% if user_signed_in? && @lesson.taught_by?(current_user) %>
+        <ul class="lesson-students list-inline">
+          <% @lesson.students.each do |student| %>
+            <li class="list-inline-item">
+              <%= link_to user_full_name(student), user_path(student) %>
+            </li>
           <% end %>
+        </ul>
+      <% end %>
+
+      <h1 class="lesson-desc-price">¥<%= number_with_delimiter(@lesson.price, delimiter: ',') %></h1>
+       <!-- if past, expired; if teaching, edit; if bookable, book; if booked, cancel -->
+      <% if @lesson.past? %>
+        <div class="book-lesson-btn past-btn">Past Lesson</div>
+      <% elsif user_signed_in? && @lesson.taught_by?(current_user) %>
+        <%= button_to "Edit lesson", edit_lesson_path(@lesson), method: :get, class: "book-lesson-btn free-btn" %>
+      <% elsif user_signed_in? && @lesson.studied_by?(current_user) %>
+        <div class="book-lesson-btn booked-btn">Booked</div>
+      <% else %>
+        <%= simple_form_for [@lesson, @booking] do |b| %>
+          <%= b.submit "Book now", :class => "book-lesson-btn free-btn" %>
         <% end %>
-      <div
+      <% end %>
+    </div>
+  </div>
+
+</div>
+  <div
         id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-    </div>
-  </div>
-  <%= link_to "home", lessons_path %>
+
 </div>

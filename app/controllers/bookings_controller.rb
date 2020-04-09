@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     if current_user
       if @booking.save
-        redirect_to user_path(@user)
+        redirect_to user_path(@user), :notice =>"Booking was successfully reserved"
       else
         render 'lessons/show'
       end

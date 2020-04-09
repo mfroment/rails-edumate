@@ -18,21 +18,30 @@ body {
   border-radius: 4px;
 }
 
-.search-bar {
-  width: 480px;
-    padding: 16px;
+.form-control {
+    padding: 12px;
     border: none;
-    border-radius: 64px;
-    opacity: 0.5;
+    border-radius: 4px;
+    opacity: 1;
+    border: 1px solid #dfdfdf;
+    height: 50px;
 }
 
-.submit-button {
-    border-radius: 82px;
-    width: 50px;
-    height: 50px;
-    opacity: 0.5;
-}
 
 .text-white {
   color: white;
+}
+
+.text-yellow {
+  color: #E8C547;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

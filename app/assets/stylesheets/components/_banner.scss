@@ -2,25 +2,35 @@
   background-image: linear-gradient(to left, rgba(0,0,0,0.9),rgba(0,0,0,0.6)), asset-url('banner.jpeg');
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  text-align: center;
+  height: 56vh;
+  text-align: left;
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 80px;
+  font-size: 96px;
   font-weight: bold;
 }
 
 .banner p {
   font-size: 24px;
-  color: #5EC54E;
-  opacity: .7;
+  color: #E8C547;
+  opacity: 1;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .banner-content {
-  padding-top: 24vh;
+  padding-top: 14vh;
+}
+
+.nav-logo {
+  height: 48px;
+  width: 48px;
+  margin-right: 16px;
+}
+
+.navbar-left a{
+  text-decoration: none !important;
 }

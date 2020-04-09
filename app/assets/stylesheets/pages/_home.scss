@@ -1,1 +1,123 @@
 // Specific CSS for your home-page
+
+.body-section {
+  min-height: 400px;
+}
+
+.feature-section{
+  width: 100%;
+  margin: 40px auto;
+  height: 240px;
+}
+
+.feature {
+  width: 33%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.icons {
+  font-size: 80px;
+  color: #5C80BC;
+  margin-bottom: 32px;
+}
+
+.recommended-classes {
+  background-color: #4D5061;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .banner h1 {
+    font-size: 80px;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .banner h1 {
+    font-size: 80px;
+  }
+
+  .banner-content {
+    padding-top: 64px;
+  }
+
+  .search-bar {
+    width: 320px;
+  }
+
+  .recommended-classes {
+    width: 100%;
+    flex-direction: flex-column;
+  }
+
+  .small-lessons-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small-card-lesson {
+    margin: 32px 0;
+  }
+
+  .navbar .home-search {
+    display: none;
+  }
+
+}
+
+@media all and (max-width: 480px) {
+  .banner h1 {
+    font-size: 80px;
+  }
+
+  .banner-content {
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .search-bar {
+    width: 320px;
+  }
+
+  .navbar {
+    justify-content: left;
+    align-items: center;
+  }
+
+  #nav-links a {
+    margin-left: 12px;
+  }
+
+  .navbar .home-search {
+    display: none;
+  }
+
+  .feature {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .recommended-classes {
+    width: 100%;
+    flex-direction: flex-column;
+  }
+
+  .small-lessons-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small-card-lesson {
+    margin: 32px 0;
+  }
+
+}

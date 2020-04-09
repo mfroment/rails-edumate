@@ -1,0 +1,32 @@
+<% if @lesson.user == current_user %>
+  <div class="auth-container shadow round">
+    <h2>Edit Lesson</h2>
+    <%= simple_form_for [@user, @lesson] do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title,
+        required: false,
+        input_html: { autocomplete: "title" } %>
+        <%= f.input :topic,
+        required: false,
+        input_html: { autocomplete: "topic" } %>
+        <%= f.input :location,
+        required: false,
+        input_html: { autocomplete: "location" } %>
+        <%= f.input :price,
+        required: false %>
+        <%= f.input :description,
+        required: false %>
+        <%= f.input :photo,
+        as: :file,
+        input_html: { class: 'btn' },
+        required: false %>
+        <%= f.input :time, as: :string, required: false, input_html: {class: "datepicker"} %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  </div>
+<% else%>
+  <h2>Access denied</h2>
+<% end %>
